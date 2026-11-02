@@ -1,0 +1,29 @@
+# Render Blueprint: persistent SQLite requires a paid service and disk.
+services:
+  - type: web
+    name: paws-and-poems
+    runtime: node
+    plan: starter
+    numInstances: 1
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /
+    disk:
+      name: paws-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 24
+      - key: NODE_ENV
+        value: production
+      - key: TRUST_PROXY
+        value: "1"
+      - key: DATABASE_PATH
+        value: /var/data/app.sqlite
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: TEACHER_LOGIN_ID
+        sync: false
+      - key: TEACHER_PASSWORD
+        sync: false

@@ -51,6 +51,19 @@ npm test
 
 Integration tests run a temporary in-memory database and local HTTP server. They cover first-time teacher setup, teacher/student login, account creation, drafts, validation, final submission, locking, role restrictions, student isolation, assessment, feedback, reopening, password reset, and logout. No production data is used. The test process needs permission to bind a local socket.
 
+## Publish on Render
+
+[Deploy on Render](https://render.com/deploy?repo=https://github.com/muhammadazizishukri-create/englishtslb)
+
+This repository includes a `render.yaml` Blueprint for one Node.js service with a persistent 1 GB SQLite disk. **The Starter service and persistent disk are paid resources.** Review Render’s current pricing before creating them.
+
+1. Open the deployment link and sign in to Render. Grant access to this GitHub repository if prompted.
+2. Set `TEACHER_LOGIN_ID` (letters, numbers, dot, underscore, or hyphen) and a unique `TEACHER_PASSWORD` (at least 12 characters, at most 72 UTF-8 bytes) in Render’s secure fields. Do not put passwords in GitHub or chat.
+3. Review the service and disk costs, then deploy the Blueprint. It configures Node.js 24, HTTPS-compatible secure sessions, a generated session secret, and persistent storage at `/var/data/app.sqlite`.
+4. When deployment reports **Live**, open the public HTTPS address shown by Render. Select Teacher, log in using the credentials you entered, and create student accounts.
+
+The hosted database starts empty; local demo accounts and local data are not uploaded. Reuse the generated session secret across redeployments and keep the persistent disk attached. Teacher credentials initialize the first teacher only; editing those variables later does not reset an existing teacher password. This configuration is prepared for deployment; pushing it to GitHub alone does not publish the website.
+
 ## Deployment
 
 Run one Node process with a persistent writable SQLite volume. Set `NODE_ENV=production`, a stable strong `SESSION_SECRET`, and initial teacher credentials through your host's secret settings. Terminate HTTPS at your trusted reverse proxy. Set `TRUST_PROXY=1` only when there is exactly one trusted proxy in front of the server; production cookies require HTTPS. Configure `DATABASE_PATH` for your persistent storage and `PORT` as needed. Restrict direct access to the backend when trusting forwarded headers.
