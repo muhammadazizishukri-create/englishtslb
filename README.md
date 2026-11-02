@@ -83,3 +83,9 @@ Back up the database with SQLite's online backup facilities or stop the server b
 - `public/app.js`, `public/style.css`: interactive UI and responsive design.
 - `seed-demo.js`: opt-in test accounts.
 - `test/workflow.test.js`: integration coverage.
+
+## HTML-only website
+
+`docs/index.html` is a self-contained HTML activity with inline CSS, JavaScript, and animal illustrations. It works directly from a file or on GitHub Pages without Node.js. Students can choose animals, write reasons, review, print, and download their worksheet. It has no authentication, database, teacher marking, or online submissions; answers are kept only in page memory until it is closed or refreshed.
+
+To publish this edition, use GitHub repository **Settings → Pages → Deploy from a branch → main → /docs → Save**. After GitHub finishes deployment, the expected site address is `https://muhammadazizishukri-create.github.io/englishtslb/`. This address is only live after Pages is enabled and deployment succeeds.
