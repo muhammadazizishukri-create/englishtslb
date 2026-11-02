@@ -1,3 +1,42 @@
+# PAWS & POEMS 🐾 — The Animal Adventure (HTML only)
+
+**Open [`index.html`](index.html) directly in Chrome, Edge, or Firefox.** This is the current standalone edition: one file contains all HTML, CSS, vanilla JavaScript, illustrations, and demonstration data initialization. No installation, server, npm, external images, APIs, or internet connection is required. The matching `docs/index.html` is the GitHub Pages copy.
+
+## Demonstration accounts
+
+| Role | ID | Password |
+| --- | --- | --- |
+| Student | STU001 | student123 |
+| Student | STU002 | student123 |
+| Teacher | TEACHER001 | teacher123 |
+
+These are **fictional frontend demonstrations, not secure authentication**. Passwords and answers are inspectable browser data. Do not enter real children's personal information. `localStorage` holds demo accounts and work; `sessionStorage` remembers the active role in the current tab. Teacher and student views share work only on the same browser profile and the same file/website address. Moving the file, switching devices or using another browser does not transfer data. Some browser privacy modes block storage; the app then runs in memory and warns you to download work before leaving.
+
+## Six-stage adventure
+
+1. **Reading Corner:** Aisya's Little Cat, inline school/Aisya/cat illustration, vocabulary pop-ups, optional browser text-to-speech with line highlighting, and three questions with explanations and retry. Earn 3 paw points after finding all answers. First-try score is shown separately.
+2. **Animal Selection:** illustrated dog, cat, bird, and fish cards. Pick a favourite and a different animal you would not choose. Earn 2 points.
+3. **Think and Write:** four distinct positive reasons, two distinct negative reasons, sentence starters, and browser-saved drafts. Earn 4 points.
+4. **Poetry Creation Studio:** original title, four or more lines, word bank, prompts, rhyming suggestions, preview, and saved drafts. Earn 5 points.
+5. **Review and Submit:** review all work, edit, confirm the browser-only submission, lock edits, download text, or print/save PDF. Earn 3 points.
+6. **My Achievements:** badges and a printable/downloadable Young Poet certificate. Total: 17 paw points, awarded once per stage; repeat visits do not farm points.
+
+Students can revisit completed stages. Changing an animal requires completing the affected writing/poetry stages again. Already-earned points remain. Submitted work is read-only until the demo teacher reopens it.
+
+The teacher dashboard creates and edits fictional accounts, changes demo passwords, searches and filters the roster, sorts submission dates, exports CSV, marks submitted work, provides feedback, and reopens submissions. The reasons/vocabulary/clarity rubric totals 10 marks, with 10 additional marks for creative poetry (20 total). Marks and feedback appear only in the relevant student's interface. Paw points and assessment marks are separate. All role restrictions are UI simulation and can be bypassed by inspecting the page or storage.
+
+Text-to-speech depends on browser/device voice support; reading remains available without it. Every asset is inline. Downloading and printing work without a backend. Test scripts were not run for this update.
+
+## Publish the HTML edition
+
+In GitHub **Settings → Pages**, choose **Deploy from a branch → main → /docs → Save**. No paid Render service is required for this edition. The expected address after successful deployment is `https://muhammadazizishukri-create.github.io/englishtslb/`. Pushing HTML does not by itself enable GitHub Pages.
+
+---
+
+## Earlier backend edition (optional, separate from the HTML adventure)
+
+The existing `server.js`, `public/`, and installation instructions below belong to the earlier Express/SQLite application. They are retained for reference and are **not required** to open or publish the standalone `index.html` adventure. `render.yaml` deploys that earlier backend edition, not the HTML-only game.
+
 # Paws & Poems
 
 A complete Year 5 Malaysian English classroom application for **Choose Your Favourite Animal**. Uses HTML, CSS, vanilla JavaScript, Express, bcrypt, and SQLite. Requires **Node.js 24 or newer** (uses the built-in `node:sqlite` module).
